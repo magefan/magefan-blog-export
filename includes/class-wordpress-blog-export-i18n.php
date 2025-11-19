@@ -16,7 +16,7 @@ class MAGESHBL_i18n {
 	public function load_plugin_textdomain() {
 
 		/*load_plugin_textdomain(
-			'wp-magefan-blog-export',
+			'wordpress-blog-export',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);*/
