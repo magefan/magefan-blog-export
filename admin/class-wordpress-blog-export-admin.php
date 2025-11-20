@@ -241,7 +241,7 @@ class MAGESHBL_Admin {
                     'My Hidden Page', // Page title
                     'My Hidden Page', // Menu title (not displayed)
                     'manage_options', // Capability
-                    'mageshbl_mf-push-page', // Menu slug
+                    'mf-push-page', // Menu slug
                     'mageshbl_mf_add_push_page_content' // Function to display content
                 );
             }

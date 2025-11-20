@@ -6,7 +6,13 @@
 ?>
 <?php
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
+$mageshbl_nonce = isset($_POST['mageshbl_nonce'])
+        ? sanitize_text_field(wp_unslash($_POST['mageshbl_nonce']))  // розсашуємо дані
+        : '';
 
+if (!wp_verify_nonce($mageshbl_nonce, 'magefan_export_action')) {
+    wp_die('Nonce verification failed.');
+}
 wp_register_style('mageshbl-inline-css', false);
 wp_enqueue_style('mageshbl-inline-css');
 $mageshbl_custom_css = "
@@ -30,8 +36,16 @@ wp_add_inline_style('mageshbl-inline-css', $mageshbl_custom_css);
 
 <?php
 
-function Mageshbl_getExporterKey()
-{
+$magentoDomain = isset($_POST['magento_domain']) ? sanitize_text_field(wp_unslash($_POST['magento_domain'])) : '';
+$destination = isset($_POST['destination']) ? sanitize_text_field(wp_unslash($_POST['destination'])) : '';
+$shopifyImportKey = isset($_POST['shopify_import_key']) ? sanitize_text_field(wp_unslash($_POST['shopify_import_key'])) : '';
+$entitiesLimit = isset($_POST['entities_limit']) ? sanitize_text_field(wp_unslash($_POST['entities_limit'])) : '';
+
+if ($magentoDomain) {
+    $magentoDomain = rtrim($magentoDomain, '/') . '/';
+}
+
+function Mageshbl_getExporterKey() {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $string = '';
 
@@ -42,11 +56,9 @@ function Mageshbl_getExporterKey()
     return $string;
 }
 
-$mageshbl_magentoDomain = $_POST['magento_domain'] ?? '';
-if ($mageshbl_magentoDomain) {
-    $mageshbl_magentoDomain = rtrim($mageshbl_magentoDomain, '/') . '/';
-}
-
+$shopifyUrl = $destination === 'magento'
+        ? esc_url($magentoDomain . 'rest/V1/magefan-blogimport/wpimport')
+        : 'https://blog.sfapp.magefan.top/blog/import';
 ?>
 <?php
 wp_register_script('mageshbl-pusher-inline-js', false, ['jquery'], false, true);
@@ -57,9 +69,9 @@ $mageshbl_inline_js = '
 
         var ajaxurl = "' . esc_url(admin_url('admin-ajax.php')) .'";
         var pushDataToShopify = ajaxurl;
-        var shopifyUrl = "' . esc_url($_POST['destination'] == 'magento' ? $mageshbl_magentoDomain . 'rest/V1/magefan-blogimport/wpimport' : 'https://blog.sfapp.magefan.top/blog/import') . '";
-        var importKey = "' . esc_js((sanitize_text_field($_POST['shopify_import_key']) ?? '')) . '";
-        var entitiesLimit = "' . esc_js((sanitize_text_field($_POST['entities_limit']) ?? '')) . '";
+        var shopifyUrl = "' . $shopifyUrl . '";
+        var importKey = "' . esc_js($shopifyImportKey) . '";
+        var entitiesLimit = "' . esc_js($entitiesLimit) . '";
         var exporterKey = "' . esc_js(Mageshbl_getExporterKey()) . '";
         var closedConnection = false;
         var indexPageUrl = "' . esc_url(admin_url('admin.php?page=magefan-blog-export-form')) . '";
@@ -88,7 +100,7 @@ $mageshbl_inline_js = '
                 url: entityIdsExtractor,
                 type: "GET",
                 data: {
-                    action: "mageshbl_magefan_shopifyblogexport_data_extractor",
+                    action: "magefan_shopifyblogexport_data_extractor",
                     mageshbl_nonce: mageshbl_nonce,
                     entitiesLimit: entitiesLimit
                 },
@@ -142,7 +154,7 @@ $mageshbl_inline_js = '
                                     "data": JSON.stringify(data),
                                     "shopifyUrl": shopifyUrl,
                                     "entity": "closeConnection",
-                                    "action": "mageshbl_magefan_shopifyblogexport_push_data_to_shopify",
+                                    "action": "magefan_shopifyblogexport_push_data_to_shopify",
                                     "mageshbl_nonce": mageshbl_nonce
                                 },
                                 dataType: "json",
@@ -170,7 +182,7 @@ $mageshbl_inline_js = '
                         url: ajaxurl,
                         type: "GET",
                         data: {
-                            action: "mageshbl_magefan_shopifyblogexport_data_extractor",
+                            action: "magefan_shopifyblogexport_data_extractor",
                             mageshbl_nonce: mageshbl_nonce
                         },
                         success: function (response) {
@@ -198,7 +210,7 @@ $mageshbl_inline_js = '
                                         "data": JSON.stringify(data),
                                         "shopifyUrl": shopifyUrl,
                                         "entity": entities[entityIndex],
-                                        "action": "mageshbl_magefan_shopifyblogexport_push_data_to_shopify",
+                                        "action": "magefan_shopifyblogexport_push_data_to_shopify",
                                         "mageshbl_nonce": mageshbl_nonce
                                     },
                                     dataType: "json",

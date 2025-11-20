@@ -9,6 +9,9 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 <h1>Export to Magefan Blog</h1>
 <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=mf-push-page' ) ); ?>">
+    <?php
+    wp_nonce_field( 'magefan_export_action', 'mageshbl_nonce' );
+    ?>
     <!-- Your HTML form fields go here -->
     <input type="hidden" name="action" value="mf_handle_form_submission">
 
