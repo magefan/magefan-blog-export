@@ -5,7 +5,7 @@ Export your WordPress blog posts and migrate them cleanly into [Shopify Blog App
 
 <img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
-## Navigation
+## Key Highlights
 * [Features](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#features)
 * [Requirements](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#requirements-and-pre-requisites)
 * [Installation](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#installation)
