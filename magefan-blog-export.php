@@ -44,7 +44,7 @@ define( 'MAGESHBL_PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-wordpress-blog-export-activator.php
+ * This action is documented in includes/class-magefan-blog-export-activator.php
  */
 function mageshbl_activate_plugin_name() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
@@ -53,7 +53,7 @@ function mageshbl_activate_plugin_name() {
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wordpress-blog-export-deactivator.php
+ * This action is documented in includes/class-magefan-blog-export-deactivator.php
  */
 function mageshbl_deactivate_plugin_name() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';

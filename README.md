@@ -6,11 +6,11 @@ Export your WordPress blog posts and migrate them cleanly into [Shopify Blog App
 <img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
 ## Key Highlights
-* [Features](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#features)
-* [Requirements](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#requirements-and-pre-requisites)
-* [Installation](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#installation)
-* [Usage](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#usage)
-* [Support](https://github.com/magefan/wordpress-blog-export/edit/main/README.md#support)
+* [Features](https://github.com/magefan/magefan-blog-export/edit/main/README.md#features)
+* [Requirements](https://github.com/magefan/magefan-blog-export/edit/main/README.md#requirements-and-pre-requisites)
+* [Installation](https://github.com/magefan/magefan-blog-export/edit/main/README.md#installation)
+* [Usage](https://github.com/magefan/magefan-blog-export/edit/main/README.md#usage)
+* [Support](https://github.com/magefan/magefan-blog-export/edit/main/README.md#support)
 
 ## Why this WordPress Blog Export tool exist?
 WordPress is a great platform for managing and creating blog posts. But once you decide to expand into eCommerce, like Shopify, or Magento, managing a blog on a separate platform becomes tedious. 
@@ -82,10 +82,10 @@ Before you begin, ensure:
 * You have the appropriate rights to export posts and media from WordPress.
 
 ## Installation
-  * Download the [archive](https://github.com/magefan/wordpress-blog-export/releases)  of the latest WordPress Blog Export tool version.
+  * Download the [archive](https://github.com/magefan/magefan-blog-export/releases)  of the latest WordPress Blog Export tool version.
   * Unzip the acrhive on your computer.
-  * Double check if the unzipped file name it "wordpress-blog-export". If it's not rename it to "wordpress-blog-export".
-  * Upload the "wordpress-blog-export" folder to your WordPress root directory (wordpress_root_directory/wp-content/plugins).
+  * Double check if the unzipped file name it "magefan-blog-export". If it's not rename it to "magefan-blog-export".
+  * Upload the "magefan-blog-export" folder to your WordPress root directory (wordpress_root_directory/wp-content/plugins).
 
 ## Usage
 
@@ -97,7 +97,7 @@ Before you begin, ensure:
 ## Support
 If you have any issues, please [contact us](mailto:support@magefan.com)
 then if you still need help, open a bug report in GitHub's
-[issue tracker](https://github.com/magefan/wordpress-blog-export/issues).
+[issue tracker](https://github.com/magefan/magefan-blog-export/issues).
     
 ## [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
 
