@@ -330,7 +330,7 @@ class MAGESHBL_Export
         $_pref = $wpdb->prefix;
         $offset--;
 
-        $sql = 'SELECT * FROM ' . $_pref . 'posts WHERE `post_type` = "post" LIMIT ' . $this->getEntitiesLimit();
+        $sql = 'SELECT * FROM ' . $_pref . 'posts WHERE `post_type` = "post" AND `post_title` NOT LIKE "%Auto Draft%" LIMIT ' . (int) $this->getEntitiesLimit();
 
         if ($offset) {
             $offset *= $this->getEntitiesLimit();

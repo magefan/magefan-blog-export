@@ -60,7 +60,7 @@ function Mageshbl_getExporterKey() {
 }
 
 $mageshbl_shopifyUrl = $mageshbl_destination === 'magento'
-        ? esc_url(trim($mageshbl_magentoDomain, '/') . 'rest/V1/magefan-blogimport/wpimport')
+        ? esc_url(trim($mageshbl_magentoDomain, '/') . '/rest/V1/magefan-blogimport/wpimport')
         : 'https://blog.sfapp.magefan.top/blog/import';
 ?>
 <?php
