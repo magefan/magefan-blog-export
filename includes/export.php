@@ -235,7 +235,8 @@ class MAGESHBL_Export
                     t.term_id as old_id,
                     t.name as title,
                     t.slug as identifier,
-                    tt.parent as path
+                    tt.parent as path, /* need use `parent_id` and remove `path`*/
+                    tt.parent as parent_id
                 FROM '.$_pref.'terms t
                 LEFT JOIN '.$_pref.'term_taxonomy tt on t.term_id = tt.term_id
                 WHERE tt.taxonomy = "category" AND t.slug <> "uncategorized"
