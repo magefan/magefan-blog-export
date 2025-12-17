@@ -13,7 +13,7 @@ class MAGESHBL_Export
 
     public function setEntitiesLimit($entitiesLimit)
     {
-        $this->entitiesLimit = $entitiesLimit;
+        $this->entitiesLimit = (int)$entitiesLimit;
     }
 
     public function getEntitiesLimit()
