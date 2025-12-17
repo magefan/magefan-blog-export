@@ -194,7 +194,8 @@ class MAGESHBL_Admin {
                 wp_send_json_error(['error' => 'Some data is missing']);
             }
 
-            $data = stripslashes($data);
+            // if data will contain json - it will make it invalid "\.
+            //$data = stripslashes($data);
 
             if (in_array($entity, ['media_post', 'media_author'])) {
                 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shopify-media-pusher.php';
