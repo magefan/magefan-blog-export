@@ -186,7 +186,7 @@ class MAGESHBL_Admin {
             }
             $entity = isset($_POST['entity']) ? sanitize_text_field(wp_unslash($_POST['entity'])) : '';
             $shopifyUrl = isset($_POST['shopifyUrl']) ? esc_url_raw(wp_unslash($_POST['shopifyUrl'])) : '';
-            $data = isset($_POST['data']) ? sanitize_text_field(wp_unslash($_POST['data'])) : '';
+            $data = isset($_POST['data']) ? (wp_unslash($_POST['data'])) : '';
 
             if (!$entity
                 || !$shopifyUrl
