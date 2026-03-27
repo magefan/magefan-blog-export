@@ -37,8 +37,9 @@ class MAGESHBL_ShopifyPusher
 
         $response_code = wp_remote_retrieve_response_code($response);
         if (200 !== $response_code) {
+            $response_body = wp_remote_retrieve_body($response); // Get the actual error message
             return wp_json_encode([
-                'errorMessage' => 'Wrong Import Key',
+                'errorMessage' => 'Server Error (' . $response_code . '): ' . $response_body,
             ]);
         }
 
