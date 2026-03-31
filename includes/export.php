@@ -71,7 +71,8 @@ class MAGESHBL_Export
         $sql = $wpdb->prepare(
             "SELECT comment_ID as old_id
                  FROM {$comments_table}
-                 WHERE comment_approved = 1"
+                 WHERE comment_approved = 1 
+                 AND comment_type IN ('', 'comment')" // Added filter
         );
 
         return $this->getEntityIds($sql);
@@ -133,16 +134,11 @@ class MAGESHBL_Export
     public function getAuthorMediaPathsNumber()
     {
         global $wpdb;
-
-        $_pref = $wpdb->prefix;
+        $usermeta = $wpdb->prefix . 'usermeta';
 
         $sql = $wpdb->prepare(
-            'SELECT m.user_id as old_id
-                FROM
-                    %s m1
-                WHERE
-                    m.meta_key="avatar" AND m.meta_value > 0
-               ', $_pref . 'usermeta'
+            "SELECT user_id as old_id FROM {$usermeta} WHERE meta_key = %s AND meta_value > 0",
+            'avatar'
         );
 
         return $this->getEntityIds($sql);
@@ -275,29 +271,36 @@ class MAGESHBL_Export
     public function getAuthors(int $offset): array
     {
         global $wpdb;
-
         $_pref = $wpdb->prefix;
+        $usermeta = $_pref . 'usermeta';
+        $cap_key = $_pref . 'capabilities';
+
         $offset--;
+        $limit = self::ENTITIES_PER_PAGE;
+        $offset_val = $offset ? $offset * $limit : 0;
 
-        $sql = 'SELECT
-                    u.ID as old_id,
-                    MAX(CASE WHEN m.meta_key = "first_name" THEN m.meta_value END) as firstname,
-                    MAX(CASE WHEN m.meta_key = "last_name" THEN m.meta_value END) as lastname,
-                    MAX(CASE WHEN m.meta_key = "description" THEN m.meta_value END) as content,
-                    u.user_email as email
-                FROM '.$_pref.'users u
-                LEFT JOIN '.$_pref.'usermeta m on u.ID = m.user_id
-                GROUP BY u.ID
-                LIMIT
-                '  . self::ENTITIES_PER_PAGE;
-
-        if ($offset) {
-            $offset *= self::ENTITIES_PER_PAGE;
-            $sql .= ' OFFSET ' . $offset;
-        }
+        $sql = $wpdb->prepare(
+            "SELECT 
+                u.ID as old_id,
+                MAX(CASE WHEN m.meta_key = 'first_name' THEN m.meta_value END) as firstname,
+                MAX(CASE WHEN m.meta_key = 'last_name' THEN m.meta_value END) as lastname,
+                MAX(CASE WHEN m.meta_key = 'description' THEN m.meta_value END) as content,
+                u.user_email as email
+            FROM {$_pref}users u
+            INNER JOIN {$usermeta} roles ON u.ID = roles.user_id
+            LEFT JOIN {$usermeta} m on u.ID = m.user_id
+            WHERE roles.meta_key = %s AND (roles.meta_value LIKE %s OR roles.meta_value LIKE %s)
+            GROUP BY u.ID
+            LIMIT %d OFFSET %d",
+            $cap_key,
+            '%"author"%',
+            '%"administrator"%',
+            $limit,
+            $offset_val
+        );
 
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-        $result = $wpdb->get_results($wpdb->prepare($sql));
+        $result = $wpdb->get_results($sql);
         $array = json_decode(wp_json_encode($result), true);
 
         //Prepare Authors
@@ -499,28 +502,23 @@ class MAGESHBL_Export
         return $resultPostData;
     }
 
-    public function getComments(int $offset): array
+   public function getComments(int $offset): array
     {
         global $wpdb;
-
         $_pref = $wpdb->prefix;
         $offset--;
 
-        $sql = 'SELECT
-                            *
-                        FROM
-                            '.$_pref.'comments
-                        WHERE
-                            `comment_approved`=1 LIMIT '. $this->getEntitiesLimit();
-
-        if ($offset) {
-            $offset *= $this->getEntitiesLimit();
-            $sql .= ' OFFSET ' . $offset;
-        }
+        $sql = $wpdb->prepare(
+            "SELECT * FROM {$_pref}comments 
+             WHERE comment_approved = 1 
+             AND comment_type IN ('', 'comment') 
+             LIMIT %d OFFSET %d",
+            $this->getEntitiesLimit(),
+            ($offset > 0 ? $offset * $this->getEntitiesLimit() : 0)
+        );
 
         $commentData = [];
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-        $result = $wpdb->get_results($wpdb->prepare($sql));
+        $result = $wpdb->get_results($sql);
         $arrayComments = json_decode(wp_json_encode($result), true);
 
         foreach ($arrayComments as $comment) {
