@@ -14,7 +14,7 @@ class MAGESHBL_ShopifyPusher
                 'data' => $data,
                 'entity' => $entity,
             ],
-            'timeout' => 15,
+            'timeout' => 60,
         ];
 
         if (strpos($url,'magefan-blogimport') !== false) {
