@@ -81,10 +81,20 @@ class MAGESHBL_Export
     {
         global $wpdb;
         $users_table = $wpdb->prefix . 'users';
+        $usermeta_table = $wpdb->prefix . 'usermeta';
+        $capabilities_key = $wpdb->prefix . 'capabilities';
 
         $sql = $wpdb->prepare(
-            "SELECT DISTINCT ID as old_id FROM {$users_table}"
+            "SELECT DISTINCT u.ID as old_id 
+             FROM {$users_table} u
+             INNER JOIN {$usermeta_table} um ON u.ID = um.user_id
+             WHERE um.meta_key = %s 
+             AND (um.meta_value LIKE %s OR um.meta_value LIKE %s)",
+            $capabilities_key,
+            '%"author"%',
+            '%"administrator"%'
         );
+
         return $this->getEntityIds($sql);
     }
 
