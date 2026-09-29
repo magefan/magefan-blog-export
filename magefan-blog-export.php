@@ -20,8 +20,8 @@
  * @wordpress-plugin
  * Plugin Name:       Magefan Blog Export
  * Plugin URI:        https://magefan.com/shopify/apps/blog/
- * Description:       Export blog to shopify blog app by magefan
- * Version:           1.0.2
+ * Description:       Export blog to shopify blog app by magefan, to the default Shopify blog, or to Magento
+ * Version:           1.0.3
  * Author:            Magefan
  * Author URI:        https://magefan.com/
  * License:           GPL-2.0+
@@ -40,7 +40,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'MAGESHBL_PLUGIN_NAME_VERSION', '1.0.2' );
+define( 'MAGESHBL_PLUGIN_NAME_VERSION', '1.0.3' );
+define( 'MAGESHBL_PLUGIN_FILE', __FILE__ );
 
 /**
  * The code that runs during plugin activation.
@@ -68,6 +69,16 @@ register_deactivation_hook( __FILE__, 'mageshbl_deactivate_plugin_name' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+
+/**
+ * "Shopify default blog" destination: export through the Blog Import app by Magefan.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/blog-import/class-mageshbl-blog-import-api-exception.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/blog-import/class-mageshbl-blog-import-api-client.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/blog-import/class-mageshbl-blog-import-image-uploader.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/blog-import/class-mageshbl-blog-import-exporter.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/blog-import/class-mageshbl-blog-import.php';
+MAGESHBL_Blog_Import::instance()->register();
 
 /**
  * Begins execution of the plugin.

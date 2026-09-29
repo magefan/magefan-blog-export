@@ -223,7 +223,7 @@ class MAGESHBL_Admin {
             {
                 add_menu_page(
                     'Export to Magefan Blog Form', // Page title
-                    'Export to Magefan Blog',      // Menu title
+                    'Magefan Blog Export',      // Menu title
                     'manage_options',   // Capability
                     'magefan-blog-export-form', // Menu slug
                     'mageshbl_mf_custom_link_page', // Callback function to display the page content

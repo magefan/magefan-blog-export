@@ -8,7 +8,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 <h1>Export to Magefan Blog</h1>
-<form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=mf-push-page' ) ); ?>">
+<form id="mageshbl-export-form" method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=mf-push-page' ) ); ?>">
     <?php
     wp_nonce_field( 'magefan_export_action', 'mageshbl_nonce' );
     ?>
@@ -24,6 +24,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
                         <option value="" disabled selected>-- Select an option --</option>
                         <option value="shopify">Shopify</option>
                         <option value="magento">Magento</option>
+                        <option value="shopify_blog">Shopify default blog</option>
                     </select>
                 </td>
             </tr>
@@ -36,7 +37,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
                     <p class="description" id="tagline-description" style="display: none">Please copy the <strong>Import Key</strong> from your Shopify Admin Panel > Apps > Magefan Blog > Configuration > Import Key.</p>
                 </td>
             </tr>
-            <tr>
+            <tr id="entities-limit">
                 <th scope="row">
                     <label for="export_shopify_entities_limit">Entities Per Export Request (100 is default, try less if data is not exported)</label>
                 </th>
@@ -55,11 +56,13 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="submit_form" value="Start Export" class="button button-primary"></td>
+                <td><input type="submit" id="mageshbl-export-submit" name="submit_form" value="Start Export" class="button button-primary"></td>
             </tr>
         </tbody>
     </table>
 </form>
+
+<?php include plugin_dir_path( __FILE__ ) . 'blog-import/progress.php'; ?>
 
 
 <?php
