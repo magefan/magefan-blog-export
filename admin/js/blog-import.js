@@ -310,6 +310,8 @@
 				renderStatus(status);
 				if (-1 === FINAL_STATUSES.indexOf(status.status)) {
 					pollTimer = setTimeout(pollStatus, pollDelay);
+				} else {
+					config.job = null;
 				}
 			})
 			.catch(function (error) {

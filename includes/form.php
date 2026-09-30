@@ -8,6 +8,12 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 <h1>Export to Magefan Blog</h1>
+<div class="notice notice-info inline" id="mageshbl-destination-note-shopify" style="display: none">
+    <p>Note: this plugin migrates WordPress blog to <a href="https://apps.shopify.com/magefan-blog" target="_blank" rel="noopener noreferrer">Magefan's Shopify Blog App</a>. If you want to migrate to the default Shopify Blog, choose "default Shopify blog" from the dropdown.</p>
+</div>
+<div class="notice notice-info inline" id="mageshbl-destination-note-magento" style="display: none">
+    <p>Note: this plugin migrates WordPress blog to <a href="https://magefan.com/magento2-blog-extension" target="_blank" rel="noopener noreferrer">Magefan's Magento Blog Extension</a> only.</p>
+</div>
 <form id="mageshbl-export-form" method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=mf-push-page' ) ); ?>">
     <?php
     wp_nonce_field( 'magefan_export_action', 'mageshbl_nonce' );
@@ -22,9 +28,9 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
                 <td>
                     <select name="destination" id="destination" required>
                         <option value="" disabled selected>-- Select an option --</option>
-                        <option value="shopify">Shopify</option>
-                        <option value="magento">Magento</option>
-                        <option value="shopify_blog">Shopify default blog</option>
+                        <option value="shopify">Magefan blog for Shopify</option>
+                        <option value="magento">Magefan blog for Magento</option>
+                        <option value="shopify_blog">default Shopify blog</option>
                     </select>
                 </td>
             </tr>
@@ -72,6 +78,14 @@ $mageshbl_inline_js = "
         document.addEventListener('DOMContentLoaded', function() {
             const destination = document.getElementById('destination');
             if (!destination) return;
+            const toggleNotes = function() {
+                ['shopify', 'magento'].forEach(function(value) {
+                    const note = document.getElementById('mageshbl-destination-note-' + value);
+                    if (note) note.style.display = destination.value === value ? '' : 'none';
+                });
+            };
+            toggleNotes();
+            destination.addEventListener('change', toggleNotes);
             destination.addEventListener('change', function() {
                 const description = document.getElementById('tagline-description');
                 const domain = document.getElementById('domain');
