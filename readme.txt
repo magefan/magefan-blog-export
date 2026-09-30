@@ -4,7 +4,7 @@ Tags: export, shopify, blog
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,6 +85,10 @@ Yes, as long as you have the Magefan Blog App installed on your Shopify store.
    <img width="1012" src="https://magefan.com/media/wysiwyg/magefan-blog-export.png">
 
 == Changelog ==
+
+= 1.0.4 =
+* The export page no longer shows the result of a finished export after reload.
+* Clearer destination names, with a note explaining the selected destination.
 
 = 1.0.3 =
 * New destination: Shopify default blog, through the Blog Import app by Magefan.
