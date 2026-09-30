@@ -277,6 +277,9 @@ class MAGESHBL_Blog_Import {
 	/**
 	 * Progress of the current import as reported by the backend.
 	 *
+	 * Once the import has ended the saved export is forgotten: its result is shown this one time,
+	 * and the next page load opens the export form again.
+	 *
 	 * @return void
 	 */
 	public function ajax_status() {
@@ -288,10 +291,16 @@ class MAGESHBL_Blog_Import {
 		}
 
 		try {
-			wp_send_json_success( $client->request( 'importstatus', array( 'job_id' => $job['job_id'] ) ) );
+			$status = $client->request( 'importstatus', array( 'job_id' => $job['job_id'] ) );
 		} catch ( MAGESHBL_Blog_Import_Api_Exception $e ) {
 			$this->send_api_error( $e );
 		}
+
+		if ( in_array( $status['status'] ?? '', array( 'done', 'failed', 'cancelled' ), true ) ) {
+			delete_option( self::OPTION_JOB );
+		}
+
+		wp_send_json_success( $status );
 	}
 
 	/**
