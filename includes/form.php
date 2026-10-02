@@ -7,12 +7,12 @@
 <?php
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
-<h1>Export to Magefan Blog</h1>
+<h1>Export Blog with Magefan</h1>
 <div class="notice notice-info inline" id="mageshbl-destination-note-shopify" style="display: none">
-    <p>Note: this plugin migrates WordPress blog to <a href="https://apps.shopify.com/magefan-blog" target="_blank" rel="noopener noreferrer">Magefan's Shopify Blog App</a>. If you want to migrate to the default Shopify Blog, choose "default Shopify blog" from the dropdown.</p>
+    <p>Note: this plugin migrates WordPress blog to <a href="https://apps.shopify.com/magefan-blog?utm_source=wordpress&amp;utm_medium=plugin&amp;utm_campaign=magefan-blog-export&amp;utm_content=shopify-note" target="_blank" rel="noopener noreferrer">Magefan's Shopify Blog App</a>. If you want to migrate to the default Shopify Blog, choose "default Shopify blog" from the dropdown.</p>
 </div>
 <div class="notice notice-info inline" id="mageshbl-destination-note-magento" style="display: none">
-    <p>Note: this plugin migrates WordPress blog to <a href="https://magefan.com/magento2-blog-extension" target="_blank" rel="noopener noreferrer">Magefan's Magento Blog Extension</a> only.</p>
+    <p>Note: this plugin migrates WordPress blog to <a href="https://magefan.com/magento2-blog-extension?utm_source=wordpress&amp;utm_medium=plugin&amp;utm_campaign=magefan-blog-export&amp;utm_content=magento-note" target="_blank" rel="noopener noreferrer">Magefan's Magento Blog Extension</a> only.</p>
 </div>
 <form id="mageshbl-export-form" method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=mf-push-page' ) ); ?>">
     <?php

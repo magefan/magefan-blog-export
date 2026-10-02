@@ -8,20 +8,110 @@ Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Export your WordPress blog posts to the [Shopify Blog App](https://apps.shopify.com/magefan-blog) easily with the Magefan plugin.
+Export your WordPress blog to Shopify or Magento easily.
 
 <a href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
 
 <img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
 == Description ==
-WP Blog Export to Shopify Blog App by Magefan allows you to easily migrate your WordPress blog posts to Shopify using the Magefan Blog App.
 
-Choose where to export:
+<h3>Import WordPress Blog to Shopify or Magento</h3>
 
-* **Shopify** — to the [Magefan Blog App](https://apps.shopify.com/magefan-blog) for Shopify.
-* **Magento** — to the Magefan Blog extension for Magento 2.
-* **Shopify default blog** — to the native Shopify blog with the Blog Import app by Magefan. Posts (including drafts, scheduled and private posts, imported as hidden), categories as separate Shopify blogs, tags, author names, featured and inline images, and SEO title and description from Yoast SEO, Rank Math, SEOPress or All in One SEO. Images are uploaded straight to Shopify, so it works even when your site is not publicly reachable.
+[Magefan Blog Export](https://wordpress.org/plugins/magefan-blog-export/) is a WordPress plugin that helps you migrate your WordPress blog to Shopify or Magento without manually copying posts one by one. The plugin exports your WordPress blog content and transfers it to one of three supported destinations:
+
+* Magefan [Blog for Magento 2](https://magefan.com/magento2-blog-extension)
+* [Magefan Blog App](https://apps.shopify.com/magefan-blog) for Shopify
+* Default Shopify blog
+
+This makes Magefan Blog Export for WordPress suitable for businesses and agencies moving their blog from WordPress to Magento or Shopify, whether you are switching your ecommerce platform or migrating an existing blog to a new store.
+
+== Choose Where to Move Your WordPress Blog ==
+
+Magefan’s WordPress Blog Export plugin supports three blog migration destinations, depending on the platform and blog solution you use.
+
+= Import WordPress Blog to Magento Blog =
+
+Move your WordPress blog to Magefan Blog for Magento 2 and continue managing your articles in Magento. This option is designed for businesses moving from WordPress to Magento or adding their existing WordPress content to a Magento store using Magefan Blog.
+
+= Import WordPress to Shopify Blog App =
+
+Move your WordPress blog to Magefan Blog for Shopify using the [Magefan Blog app](https://apps.shopify.com/magefan-blog). This option allows you to migrate your existing WordPress content to Magefan's Shopify blog app and manage your posts within the blog builder app.
+
+= Import WordPress to Default Shopify Blog =
+
+If you prefer Shopify's native blogging functionality, WordPress Blog Export can also migrate your WordPress blog to the default Shopify blog using the [Magefan Blog Import app](https://apps.shopify.com/blog-import). This gives you a migration path from WordPress to Shopify without requiring you to use a third-party blog solution.
+
+== Who is this WordPress Blog Export plugin for? ==
+
+Magefan Blog Export plugin is built for:
+
+* Businesses moving from WordPress to Magento
+* Businesses switching from WordPress to Shopify
+* Store owners migrating an existing WordPress blog to a new ecommerce platform
+* Magento merchants moving WordPress content to Magefan Blog
+* Shopify merchants moving WordPress content to Magefan Blog on Shopify
+* Shopify merchants who want to use the default Shopify blog
+* Agencies handling WordPress to Magento or WordPress to Shopify migrations
+* Store owners with large WordPress blogs who want to avoid manually recreating every post
+
+Whether you need to import a WordPress blog to Magento or import a WordPress blog to Shopify, Magefan Blog Export provides a single export solution for the migration.
+
+== What Does Magefan Blog Export plugin export? ==
+
+Magefan Blog Export transfers important elements of your existing WordPress blog to the selected Magento or Shopify destination, including:
+
+* **Blog posts** — import published, draft, scheduled, and private WordPress posts. Note: draft, scheduled and private posts are imported as hidden content in case of import to the default Shopify blog.
+* **Categories** — WordPress categories are converted into separate Shopify blogs, or regular blog categories within Magefan Blog apps on Shopify or Magento.
+* **Tags** — preserve WordPress post tags during the migration.
+* **Authors** — transfer author names with your blog posts.
+* **Featured and inline images** — move images directly to Shopify and Magento, instead of leaving them hosted on WordPress.
+* **SEO titles and meta descriptions** — transfer SEO titles and descriptions from Yoast SEO, Rank Math, SEOPress, or All in One SEO.
+* **Internal links** — identify internal links in your WordPress content and adapt them for the new blog structure.
+* **Post content and formatting** — WordPress renders the post content before export, helping preserve HTML generated by blocks, shortcodes, and embeds.
+
+The exact destination and available blog features depend on whether you are exporting to Magefan Blog for Magento, Magefan Blog for Shopify, or Shopify's default blog.
+
+== How to Migrate a WordPress Blog to Shopify or Magento? ==
+
+The migration process depends on the destination you choose, but the general workflow is simple:
+
+1. Install Magefan Blog Export on your WordPress website.
+2. Install Magefan Magento Blog Extension or Magefan Shopify Blog App. Note: if you want to migrate to the default Shopify Blog, you also need the [Magefan Blog Import app](https://apps.shopify.com/blog-import) for Shopify.
+3. Choose your migration destination — Magento Magefan Blog, Shopify Magefan Blog, or Shopify default blog.
+4. Connect WordPress with the destination using the Magefan connection key provided by Magefan import apps.
+5. Start the export from WordPress.
+6. Let Magefan transfer your blog content to the selected platform.
+
+== Why use Magefan for WordPress blog migration? ==
+
+Moving a blog manually can require copying hundreds or thousands of posts, images, tags, and SEO fields. Magefan Blog Export plugin for WordPress automates this process so you can move your existing WordPress blog to Shopify or Magento without rebuilding every post manually.
+
+= Move your existing blog content =
+
+Instead of manually copying each post and category, use Magefan Blog Export plugin to export your WordPress blog content and send it to Shopify and Magento in bulk.
+
+= Keep your blog images =
+
+Featured and inline images are transferred directly to Magento and Shopify rather than remaining dependent on your WordPress media library.
+
+= Transfer important SEO data =
+
+Magefan Blog Export plugin for WordPress can transfer SEO titles and meta descriptions from popular WordPress SEO plugins, helping you carry important on-page SEO information into your new blog on Shopify or Magento.
+
+= Preserve WordPress content formatting =
+
+WordPress renders your post content before it is exported. This helps preserve HTML generated by WordPress blocks, shortcodes, and embeds during the migration.
+
+== Start Your WordPress Blog Migration ==
+
+Move your existing WordPress blog to the ecommerce platform and blog solution you need. With Magefan Blog Export, you can migrate your WordPress blog to:
+
+* Magefan Blog for Magento 2
+* Magefan Blog for Shopify
+* Shopify Default Blog
+
+Choose your destination, connect your WordPress website, and start exporting your blog content.
 
 == Installation ==
 1. Download the latest version of the plugin [here](https://github.com/magefan/magefan-blog-export/releases).
@@ -30,55 +120,27 @@ Choose where to export:
 4. Upload the `magefan-blog-export` folder to the `/wp-content/plugins` directory in your WordPress installation.
 5. Log in to your WordPress Admin Panel, navigate to Plugins, and activate the plugin.
 
-== Usage ==
-To use the plugin:
-1. Log in to your WordPress Admin Panel.
-2. Navigate to the "Export to Shopify" section.
-3. Follow the instructions to export your blog posts.
-
-Example screenshot:
-
-<img width="1012" src="https://magefan.com/media/wysiwyg/magefan-blog-export.png">
-
-To export to the default Shopify blog, select **Shopify default blog**, paste the connection key from the Blog Import app in your Shopify admin into the **Import Key** field and click **Start Export**. Once all posts are sent you can close the page; the import continues in Shopify.
-
-== External services ==
-
-This plugin sends your blog content to the destination you select. Nothing is sent until you click Start Export.
-
-= Magefan Blog App for Shopify =
-
-Used when the destination is Shopify. Your categories, tags, authors, posts, comments and images, together with the Import Key, are sent to https://blog.sfapp.magefan.top/ while the export runs.
-
-* Privacy policy: https://magefan.com/privacy-policy
-
-= Your Magento store =
-
-Used when the destination is Magento. The same data is sent to the store domain you enter.
-
-= Blog Import app by Magefan =
-
-Used when the destination is Shopify default blog. Receives the export and creates the posts in your Shopify store. The address of the service is part of the connection key you copy from the app in your Shopify admin.
-
-* When: when you start, cancel or check an export, and while posts are being sent.
-* What: your categories (name, slug, description) and posts (title, slug, content, excerpt, author name, tags, categories, status, publish date, SEO title and description, image URLs and alt text), your site URL and the plugin version. The connection key is sent with every request.
-* Privacy policy: https://magefan.com/privacy-policy
-
-= Shopify =
-
-Used when the destination is Shopify default blog. Image files stored in your uploads folder are uploaded directly to Shopify's file storage, using an upload address that Shopify issues for each file through the Blog Import app.
-
-* When: while posts are being sent, for posts that have images.
-* What: the image files.
-* Terms of service: https://www.shopify.com/legal/terms
-* Privacy policy: https://www.shopify.com/legal/privacy
-
 == Frequently Asked Questions ==
-= How do I install this plugin? =
-Follow the installation instructions provided above to set up the plugin.
 
-= Can I use this with any Shopify store? =
-Yes, as long as you have the Magefan Blog App installed on your Shopify store.
+= How do I migrate my WordPress blog to Shopify? =
+
+Install Magefan Blog Export plugin on your WordPress website and install the [Magefan Blog Import app](https://apps.shopify.com/blog-import) to migrate your blog to a native Shopify blog. Connect the two using the connection key provided by the Shopify app, then start the export from WordPress. Magefan transfers your blog posts and supported content to Shopify. If you want to migrate to Magefan Blog App for Shopify choose a corresponding destination during export.
+
+= How do I import a WordPress blog to Magento? =
+
+Magefan Blog Export can export your WordPress posts, categories, tags, images, comments, and other supported content to Magefan Blog for Magento.
+
+= What is the difference between the two Shopify blog migration options? =
+
+Magefan Blog for Shopify is the blog app provided by Magefan for Shopify which offers additional blogging functionality outside of the default Shopify blog features. Shopify Default Blog is Shopify's native blogging functionality. Magefan Blog Export supports both destinations, so you can choose where your WordPress content should be migrated.
+
+= Can I migrate WordPress categories and tags? =
+
+Yes. Magefan Blog Export transfers WordPress categories and tags together with your blog posts, helping you maintain your existing blog organization after migration.
+
+= Can I migrate WordPress blog images? =
+
+Yes. Magefan Blog Export transfers featured and inline images used in your WordPress blog posts as part of the migration, so they are hosted directly in Shopify or Magento.
 
 == Screenshots ==
 1. **Export Section** - Easily export your WordPress blog posts to Shopify.
