@@ -8,7 +8,7 @@ Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Export your WordPress blog posts to the [Shopify Blog App](https://apps.shopify.com/magefan-blog) easily with the Magefan plugin.
+Export your WordPress blog to Shopify or Magento easily.
 
 <a href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
 
