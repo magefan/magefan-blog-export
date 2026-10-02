@@ -1,4 +1,4 @@
-# [WordPress Blog Export](https://wordpress.org/plugins/magefan-blog-export/?utm_source=chatgpt.com) by Magefan
+# [WordPress Blog Export](https://wordpress.org/plugins/magefan-blog-export/) by Magefan
 WordPress Blog Export by Magefan is a WordPress plugin that helps you migrate blog content from WordPress to Magento 2 or Shopify. The plugin exports your WordPress blog posts and related data and lets you migrate them to one of three supported destinations:
 
 * Magefan Blog for Magento 2
