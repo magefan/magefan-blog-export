@@ -95,6 +95,8 @@ After installing the WordPress plugin, connect it to your eCommerce store via a 
 ### Step 1: Install Shopify blog import or Magefan Blog App
 Install the [Magefan Blog Import app for Shopify](https://apps.shopify.com/blog-import?utm_source=chatgpt.com) to migrate to native Shopify Blog, or [SEO Blog Writer](https://apps.shopify.com/magefan-blog) by Magefan to migrate to the custom Blog app.
 
+<img src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/wp-1-stage-default-shopify.webp">
+
 ### Step 1: Install Magefan Blog Extension for Magento
 If you want to migrate a WordPress blog to Magento, install the [Magefan Blog Extension](https://magefan.com/magento2-blog-extension).
 
@@ -107,6 +109,8 @@ In your WordPress admin panel > WordPress Blog Export, choose the destination, p
 ### Step 4: Start the export
 Once WordPress is connected to Shopify or Magento, click Start export.
 The plugin begins sending your WordPress blog content to the Magefan Blog Import app in Shopify or dedicated Magefan Blog apps. Once all posts have been sent, you can close the WordPress page. The import continues on the destination side.
+
+<img src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/wp-2-stage-to-shopify-default.webp">
 
 ## Important: How Images Are Transferred
 Magefan Blog Export transfers featured and inline images from your WordPress media library to Shopify and Magento.
